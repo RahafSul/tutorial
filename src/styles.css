@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 80%; 
+              padding: 20px;}
+body { margin: 20px; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.form-control.ng-touched.ng-invalid{
+    border:2px   solid #ff0000
+    
+}

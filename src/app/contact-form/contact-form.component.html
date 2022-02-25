@@ -1,0 +1,87 @@
+<form    #login="ngForm" (ngSubmit)="submit(login)"     autocomplete="off"    >
+    <div class ="container">
+    <h1>User Registration</h1>
+  <div class="form-group">
+    <label for="firstName">First Name</label><br>
+     <input 
+     required
+     minlength="3"
+     maxlength="10"
+     pattern="banana"
+     ngModel
+     name="firstName"
+     #firstName="ngModel"
+     (change)="log(firstName)"
+     id="firstName" 
+     type="text"
+    class="form-control">
+    <div
+     class="alert alert-danger"
+     *ngIf="firstName.touched && !firstName.valid"  >
+     <div *ngIf="firstName.errors?.['required']">
+        First name is required.
+        </div>
+        <div *ngIf="firstName.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </div>
+
+         </div>
+
+    <pre></pre>
+     <div class="form-group">
+     <label for="LastName">Last Name</label><br>
+
+      <input 
+      required
+      pattern="banana"
+      ngModel
+      name="lastName"
+      #lastName="ngModel"
+      (change)="log(lastName)"
+      id="LastName"
+       type="text" 
+       class="form-control">
+      </div>
+
+      <div
+     class="alert alert-danger"
+     *ngIf="lastName.touched && !lastName.valid"  >
+     <div *ngIf="lastName.errors?.['required']">
+        lastName is required.
+        </div>
+        </div>
+
+    <pre></pre>
+      <div class="form-group">
+        <label for="age">Age</label><br>
+
+         <input
+         required
+         pattern="banana"
+         ngModel
+         name="age"
+         #age="ngModel"
+
+         (change)="log(age)"
+
+         id="age"
+          type="number" 
+          class="form-control">
+         </div>
+         <div
+         class="alert alert-danger"
+         *ngIf="age.touched && !age.valid"  >
+         <div *ngIf="age.errors?.['required']">
+            Age is required.
+            </div>
+            <div *ngIf="!age.valid ifBlock"></div>
+        <ng-tamplate  #ifBlock>
+          <p>Age must be beutween 18 & 65</p>
+        </ng-tamplate>
+
+         </div>
+
+         <pre></pre>
+      <button class="btn btn-primary" type="submit">Submit</button>
+</div>
+
